@@ -21,7 +21,14 @@ module.exports = {
       sans: ['Noto Sans JP', 'sans-serif'],
       english: ['Montserrat', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      width: {
+        container: '85vw',
+        'over-5': 'calc(100% + 5px)',
+        'over-10': 'calc(100% + 10px)',
+        'over-20': 'calc(100% + 20px)',
+      },
+    },
   },
   variants: {
     extend: {},

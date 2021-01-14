@@ -1,6 +1,6 @@
 const Component = () => (
   <>
-    <footer className='font-english mt-24 py-7 bg-blue-lighter bg-opacity-10'>
+    <footer className='font-english mt-24 py-7 md:py-11 bg-blue-lighter bg-opacity-10'>
       <p className='font-bold text-center'>MEDIA</p>
       <ul className='flex gap-5 justify-center mt-2'>
         <li className='text-xs'>
