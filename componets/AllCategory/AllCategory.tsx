@@ -16,7 +16,7 @@ type Props = {} & ContainerProps
 const Component: React.FC<Props> = (props) => (
   <>
     <Heading title='All Category' />
-    <ul className='flex flex-wrap gap-4 mt-8'>
+    <ul className='flex flex-wrap gap-4 mt-7'>
       {props.categories.map((category) => (
         <li
           className='font-english text-xl px-4 py-1 border-blue-lightest border-opacity-20 border-2 rounded-md'

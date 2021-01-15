@@ -11,11 +11,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "dayjs": "^1.10.3",
     "next": "10.0.5",
     "next-google-fonts": "^1.2.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-spinners": "^0.10.4",
+    "sass": "^1.32.4",
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {

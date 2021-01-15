@@ -34,7 +34,7 @@ const Component: React.FC<Props> = (props) => (
     </div>
     <div className='hidden md:flex items-center'>
       <Navigation />
-      <div className='w-60 ml-7'>
+      <div className='w-60 lg:w-80 ml-7'>
         <SearchButton
           searchText={props.searchText}
           onChangeText={props.onChangeText}

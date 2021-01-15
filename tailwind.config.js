@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: ['./pages/**/*.tsx', './components/**/*.tsx'],
   darkMode: false, // or 'media' or 'class'
@@ -14,7 +16,7 @@ module.exports = {
         lighter: '#8f8fe8',
         lightest: '#6e6eff',
       },
-      gray: '#e2e0e0',
+      gray: colors.coolGray,
       white: '#fff',
     },
     fontFamily: {

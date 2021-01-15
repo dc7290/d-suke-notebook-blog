@@ -33,7 +33,7 @@ const Component: React.FC<Props> = ({ children }) => (
       <title>でぃーすけの個人的備忘録</title>
     </Head>
     <Header />
-    <main className='mt-14 mx-auto w-container max-w-screen-xl'>
+    <main className='mt-14 md:mt-20 mx-auto w-container max-w-screen-xl'>
       {children}
       <div className='mt-16'>
         <AllCategory categories={categories} />
