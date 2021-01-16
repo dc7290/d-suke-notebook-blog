@@ -22,7 +22,7 @@ const Component: React.FC<Props> = (props) => (
         <br />
         忘れないようにするための備忘録です。
       </p>
-      <div className='mt-14 md:mt-44 sm:w-3/5 md:w-3/4 lg:w-2/5 '>
+      <div className='mt-14 md:mt-36 lg:mt-44 sm:w-3/5 md:w-3/5 lg:w-2/5 '>
         <SearchButton
           searchText={props.searchText}
           onChangeText={props.onChangeText}
