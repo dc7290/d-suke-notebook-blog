@@ -1,28 +1,54 @@
 import React, { useState } from 'react'
-import Link from 'next/link'
 import SearchButton from '../SearchButton'
 import { pagesPath } from '../../lib/$path'
 import type { SearchButtonProps } from '../SearchButton'
 import { useSearch } from '../../hooks/useSearch'
+import { useRouter } from 'next/router'
 
+import stylesNavigation from './Navigation.module.scss'
+
+type NavigationProps = {
+  onLinkClick: (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    pass: string
+  ) => void
+  currentPass: string
+}
 type ContainerProps = {}
 type Props = {
   open: boolean
   onToggle: () => void
 } & ContainerProps &
-  SearchButtonProps
+  SearchButtonProps &
+  NavigationProps
 
-const Navigation: React.FC = () => (
+const navigationList = [
+  {
+    pass: pagesPath.$url().pathname,
+    name: 'Home',
+  },
+  {
+    pass: pagesPath.posts.$url().pathname,
+    name: 'Posts',
+  },
+]
+const Navigation: React.FC<NavigationProps> = (props) => (
   <nav className='flex font-english font-normal'>
-    <Link href={pagesPath.$url().pathname}>
-      <a className='relative text-blue font-bold'>
-        Home
-        <span className='absolute bottom-0 left-0 bg-blue w-over-5 h-0.5'></span>
-      </a>
-    </Link>
-    <Link href={pagesPath.posts.$url().pathname}>
-      <a className='pl-5'>Posts</a>
-    </Link>
+    {navigationList.map((nav) => {
+      const isMatch = props.currentPass === nav.pass
+      return (
+        <a
+          href={nav.pass}
+          className={`${stylesNavigation.link} ${
+            isMatch ? stylesNavigation.active : ''
+          }`}
+          onClick={(e) => props.onLinkClick(e, nav.pass)}
+          key={nav.name}
+        >
+          {nav.name}
+        </a>
+      )
+    })}
   </nav>
 )
 
@@ -33,7 +59,10 @@ const Component: React.FC<Props> = (props) => (
       <h1 className='text-xl md:text-2xl'>でぃーすけの個人的備忘録</h1>
     </div>
     <div className='hidden md:flex items-center'>
-      <Navigation />
+      <Navigation
+        onLinkClick={props.onLinkClick}
+        currentPass={props.currentPass}
+      />
       <div className='w-60 lg:w-80 ml-7'>
         <SearchButton
           searchText={props.searchText}
@@ -93,7 +122,10 @@ const Component: React.FC<Props> = (props) => (
         </svg>
       </button>
       <div className='mt-8'>
-        <Navigation />
+        <Navigation
+          onLinkClick={props.onLinkClick}
+          currentPass={props.currentPass}
+        />
       </div>
       <div className='mt-6 w-full'>
         <SearchButton
@@ -111,6 +143,16 @@ const Container: React.FC<ContainerProps> = () => {
   const handleToggle = () => setOpen(!open)
 
   const { searchText, handleChangeText, handleSearch } = useSearch(handleToggle)
+
+  const router = useRouter()
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    pass: string
+  ) => {
+    e.preventDefault()
+    setOpen(false)
+    router.push(pass)
+  }
   return (
     <Component
       open={open}
@@ -118,6 +160,8 @@ const Container: React.FC<ContainerProps> = () => {
       searchText={searchText}
       onChangeText={handleChangeText}
       onSearch={handleSearch}
+      onLinkClick={handleLinkClick}
+      currentPass={router.pathname}
     />
   )
 }

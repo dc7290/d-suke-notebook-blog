@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import type { SearchButtonProps } from '../componets/SearchButton'
+import type { SearchButtonProps } from '../components/SearchButton'
 import { pagesPath } from '../lib/$path'
 
 const useSearch = (func?: () => void) => {
