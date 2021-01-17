@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import SearchButton from '../SearchButton'
-import { pagesPath } from '../../lib/$path'
+import { pagesPath } from '../../utils/$path'
 import type { SearchButtonProps } from '../SearchButton'
 import { useSearch } from '../../hooks/useSearch'
 import { useRouter } from 'next/router'

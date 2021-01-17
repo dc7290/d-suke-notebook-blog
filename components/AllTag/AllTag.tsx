@@ -1,15 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
 import Heading from '../Heading'
-import { pagesPath } from '../../lib/$path'
+import { pagesPath } from '../../utils/$path'
 
-export type Category = {
+export type Tag = {
   link: string
   text: string
 }
 
 type ContainerProps = {
-  categories: Category[]
+  tags: Tag[]
 }
 type Props = {} & ContainerProps
 
@@ -17,13 +17,13 @@ const Component: React.FC<Props> = (props) => (
   <>
     <Heading title='All Category' />
     <ul className='flex flex-wrap gap-4 mt-7'>
-      {props.categories.map((category) => (
+      {props.tags.map((tag) => (
         <li
           className='font-english text-xl px-4 py-1 border-blue-lightest border-opacity-20 border-2 rounded-md'
-          key={category.text}
+          key={tag.text}
         >
-          <Link href={pagesPath._categoryId(category.link).$url().pathname}>
-            <a>{category.text}</a>
+          <Link href={pagesPath._tagId(tag.link).$url()}>
+            <a>{tag.text}</a>
           </Link>
         </li>
       ))}

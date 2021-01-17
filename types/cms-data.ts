@@ -44,3 +44,19 @@ export type PostsData = {
   offset: number
   limit: number
 }
+
+export type TagData = {
+  id: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  link: string
+  text: string
+}
+
+export type TagsData = {
+  contents: TagData[]
+  totalCount: number
+  offset: number
+  limit: number
+}

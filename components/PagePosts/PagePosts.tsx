@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import PostOverviewList from '../PostOverviewList'
-import { pagesPath } from '../../lib/$path'
+import { pagesPath } from '../../utils/$path'
 import { useRouter } from 'next/router'
 import type { PostOverviewProps } from '../PostOverview'
 
@@ -22,12 +22,7 @@ const Component: React.FC<Props> = (props) => (
     <PostOverviewList postOverviewList={props.posts} />
     <div className='flex items-center justify-center mt-7'>
       {props.prev !== 0 && (
-        <Link
-          href={{
-            pathname: pagesPath.posts.$url().pathname,
-            query: { page: props.prev },
-          }}
-        >
+        <Link href={pagesPath.posts.$url({ query: { page: props.prev } })}>
           <a className='mr-4'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -47,9 +42,8 @@ const Component: React.FC<Props> = (props) => (
       )}
       <ul className='flex gap-2 font-english'>
         {props.pageList.map((n) => (
-          <li>
+          <li key={n}>
             <Link
-              key={n}
               href={{
                 pathname: pagesPath.posts.$url().pathname,
                 query: { page: n },

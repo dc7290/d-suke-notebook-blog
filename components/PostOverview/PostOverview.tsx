@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { pagesPath } from '../../lib/$path'
+import { pagesPath } from '../../utils/$path'
 import { useRouter } from 'next/router'
 import type {} from 'dayjs'
 import { formatDate } from '../../utils/day'
@@ -26,8 +26,11 @@ const Component: React.FC<Props> = (props) => (
     className='py-5 border-gray-100 border-b-2 border-solid'
     role='link'
   >
-    <Link href={pagesPath._categoryId(props.tag.link).$url().pathname}>
-      <a className='text-xs p-1 border-blue-lightest border-opacity-20 border-2 rounded-md'>
+    <Link href={pagesPath._tagId(props.tag.link).$url()}>
+      <a
+        className='text-xs p-1 border-blue-lightest border-opacity-20 border-2 rounded-md'
+        onClick={(e) => e.stopPropagation()}
+      >
         {props.tag.text}
       </a>
     </Link>
