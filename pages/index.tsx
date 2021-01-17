@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   }
 }
 
-const Home: NextPage<Props> = (props) => {
+const IndexPage: NextPage<Props> = (props) => {
   const router = useRouter()
   useEffect(() => {
     props.posts.forEach((post) => {
@@ -73,4 +73,4 @@ const Home: NextPage<Props> = (props) => {
   )
 }
 
-export default Home
+export default IndexPage

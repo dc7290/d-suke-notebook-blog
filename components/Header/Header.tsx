@@ -142,7 +142,9 @@ const Container: React.FC<ContainerProps> = () => {
   const [open, setOpen] = useState(false)
   const handleToggle = () => setOpen(!open)
 
-  const { searchText, handleChangeText, handleSearch } = useSearch(handleToggle)
+  const { searchText, handleChangeText, handleSearch } = useSearch(() =>
+    setOpen(false)
+  )
 
   const router = useRouter()
   const handleLinkClick = (

@@ -16,9 +16,6 @@ type Props = {} & ContainerProps
 const Component: React.FC<Props> = (props) => (
   <>
     <GoogleFonts href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+JP:wght@500;700&display=swap' />
-    <Head>
-      <title>でぃーすけの個人的備忘録</title>
-    </Head>
     <Header />
     <main className='mt-14 md:mt-20 mx-auto w-container max-w-screen-xl'>
       {props.children}

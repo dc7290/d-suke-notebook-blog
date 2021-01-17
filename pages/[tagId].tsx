@@ -50,11 +50,11 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (
   }
 }
 
-const TagId: NextPage<Props> = (props) => {
+const TagIdPage: NextPage<Props> = (props) => {
   return (
     <>
       <Head>
-        <title>{} | でぃーすけの個人的備忘録</title>
+        <title>{props.currentTag} | でぃーすけの個人的備忘録</title>
       </Head>
       <Layout tags={props.tags}>
         <PageTitle title={props.currentTag} />
@@ -64,4 +64,4 @@ const TagId: NextPage<Props> = (props) => {
   )
 }
 
-export default TagId
+export default TagIdPage

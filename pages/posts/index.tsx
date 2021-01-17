@@ -34,7 +34,7 @@ export type OptionalQuery = {
   page?: number
 }
 
-const Posts: NextPage<Props> = (props) => {
+const PostsPage: NextPage<Props> = (props) => {
   return (
     <>
       <Head>
@@ -48,4 +48,4 @@ const Posts: NextPage<Props> = (props) => {
   )
 }
 
-export default Posts
+export default PostsPage
