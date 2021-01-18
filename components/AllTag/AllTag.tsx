@@ -19,7 +19,7 @@ const Component: React.FC<Props> = (props) => (
     <ul className='flex flex-wrap gap-4 mt-7'>
       {props.tags.map((tag) => (
         <li
-          className='font-english text-xl px-4 py-1 border-blue-lightest border-opacity-20 border-2 rounded-md'
+          className='font-english text-xl px-4 py-1 border-blue-lightest border-opacity-20 border-2 rounded-md transition-colors hover:bg-blue-lightest hover:bg-opacity-20'
           key={tag.text}
         >
           <Link href={pagesPath._tagId(tag.link).$url()}>

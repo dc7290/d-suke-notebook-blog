@@ -32,7 +32,7 @@ interface Query extends ParsedUrlQuery {
   q: string
 }
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
+const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 const SearchPage: NextPage<Props, Query> = (props) => {
   const router = useRouter()

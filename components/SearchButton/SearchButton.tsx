@@ -3,12 +3,16 @@ import React from 'react'
 export type ContainerProps = {
   searchText: string
   onChangeText: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onSearch: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  onSearch: (
+    e:
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+      | React.FormEvent<HTMLFormElement>
+  ) => void
 }
 type Props = {} & ContainerProps
 
 const Component: React.FC<Props> = (props) => (
-  <form id='search' className='flex'>
+  <form id='search' className='flex' onSubmit={props.onSearch}>
     <input
       type='text'
       placeholder='Search Blog'

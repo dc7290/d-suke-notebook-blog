@@ -23,7 +23,7 @@ type Props = {
 const Component: React.FC<Props> = (props) => (
   <article
     onClick={props.onClick}
-    className='py-5 border-gray-100 border-b-2 border-solid'
+    className='py-5 border-gray-100 border-b-2 border-solid cursor-pointer transition-colors hover:bg-blue-light hover:bg-opacity-40'
     role='link'
   >
     <Link href={pagesPath._tagId(props.tag.link).$url()}>
@@ -36,7 +36,7 @@ const Component: React.FC<Props> = (props) => (
     </Link>
     <h3 className='font-bold text-xl mt-2.5'>{props.title}</h3>
     <p className='text-sm mt-2.5'>
-      {props.summaryText}...
+      {props.summaryText.slice(0, 150)}...
       <span className='font-bold text-blue pl-4'>Read more</span>
     </p>
     <p className='text-xs mt-2.5'>

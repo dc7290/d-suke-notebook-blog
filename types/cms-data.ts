@@ -1,45 +1,50 @@
 type BodyContent =
   | {
-      filedId: 'heading1'
-      heading1: string
+      fieldId: 'heading1'
+      heading: string
     }
   | {
-      filedId: 'heading2'
-      heading2: string
+      fieldId: 'heading2'
+      heading: string
     }
   | {
-      filedId: 'body'
-      body: string
+      fieldId: 'text'
+      text: string
     }
   | {
-      filedId: 'image'
+      fieldId: 'image'
       image: {
         url: string
       }
     }
 
 export type PostData = {
-  id: string
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  revisedAt: string
-  title: string
-  url: string
-  tag: {
+  contents: {
     id: string
     createdAt: string
     updatedAt: string
     publishedAt: string
-    link: string
-    text: string
+    revisedAt: string
+    title: string
+    url: string
+    tag: {
+      id: string
+      createdAt: string
+      updatedAt: string
+      publishedAt: string
+      link: string
+      text: string
+    }
+    summaryText: string
+    body: BodyContent[]
   }
-  summaryText: string
-  body: BodyContent[]
+  totalCount: number
+  offset: number
+  limit: number
 }
 
 export type PostsData = {
-  contents: PostData[]
+  contents: PostData['contents'][]
   totalCount: number
   offset: number
   limit: number

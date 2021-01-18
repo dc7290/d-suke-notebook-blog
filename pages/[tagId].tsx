@@ -8,7 +8,6 @@ import type { Tag } from '../components/AllTag/AllTag'
 import type { PostOverviewProps } from '../components/PostOverview'
 import type { PostsData, TagsData } from '../types/cms-data'
 import { getTags } from '../utils/getTags'
-import type { ParsedUrlQuery } from 'querystring'
 
 type Props = {
   posts: PostOverviewProps[]
@@ -27,14 +26,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-interface Params extends ParsedUrlQuery {
-  tagId: string
-}
-
-export const getStaticProps: GetStaticProps<Props, Params> = async (
-  context
-) => {
-  const params = context.params as Params
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
+  const params = context.params as { tagId: string }
   const tags: TagsData = await getTags()
   const tagId = tags.contents.find((tag) => tag.link === params.tagId)?.id
   const data: PostsData = await fetch(
