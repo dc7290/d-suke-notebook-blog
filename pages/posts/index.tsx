@@ -6,8 +6,8 @@ import PagePosts from '../../components/PagePosts'
 import { options } from '..'
 import type { PostsData, TagsData } from '../../types/cms-data'
 import { getTags } from '../../utils/getTags'
-import { Tag } from '../../components/AllTag/AllTag'
-import { PostOverviewProps } from '../../components/PostOverview'
+import type { Tag } from '../../components/AllTag/AllTag'
+import type { PostOverviewProps } from '../../components/PostOverview'
 
 type Props = {
   posts: PostOverviewProps[]

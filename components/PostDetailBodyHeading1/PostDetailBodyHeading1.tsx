@@ -6,7 +6,7 @@ type ContainerProps = {
 type Props = {} & ContainerProps
 
 const Component: React.FC<Props> = (props) => (
-  <h2 className='text-lg mt-7 py-2 pl-4 bg-blue-lighter bg-opacity-10 border-l-4 border-blue border-solid'>
+  <h2 className='text-xl mt-7 py-2 md:py-3 pl-4 bg-blue-lighter bg-opacity-10 border-l-4 border-blue border-solid'>
     {props.text}
   </h2>
 )

@@ -5,3 +5,12 @@
 body {
   color: #2c2c33;
 }
+
+a {
+  word-break: break-all;
+}
+
+input {
+  -webkit-appearance: none;
+  appearance: none;
+}

@@ -40,19 +40,18 @@ const Component: React.FC<Props> = (props) => (
           </a>
         </Link>
       )}
-      <ul className='flex gap-2 font-english'>
+      <ul className='flex font-english'>
         {props.pageList.map((n) => (
           <li key={n}>
-            <Link
-              href={{
-                pathname: pagesPath.posts.$url().pathname,
-                query: { page: n },
-              }}
-            >
+            <Link href={pagesPath.posts.$url({ query: { page: n } })}>
               <a
-                className={
-                  props.currentPage === n ? 'font-bold text-2xl text-blue' : ''
-                }
+                className={`
+                  ${
+                    props.currentPage === n
+                      ? 'font-bold text-2xl text-blue'
+                      : ''
+                  } ${n !== 1 ? 'ml-2 ' : ''}
+                `}
               >
                 {n}
               </a>
@@ -61,12 +60,7 @@ const Component: React.FC<Props> = (props) => (
         ))}
       </ul>
       {props.posts.length > props.postsPerPage * props.currentPage && (
-        <Link
-          href={{
-            pathname: pagesPath.posts.$url().pathname,
-            query: { page: props.next },
-          }}
-        >
+        <Link href={pagesPath.posts.$url({ query: { page: props.next } })}>
           <a className='ml-4'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -102,6 +96,7 @@ const Container: React.FC<ContainerProps> = (props) => {
     postsPerPage * prev,
     postsPerPage * currentPage
   )
+
   return (
     <Component
       {...props}

@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './PostDetailBodyText.module.scss'
 
 type ContainerProps = {
   text: string
@@ -6,10 +7,10 @@ type ContainerProps = {
 type Props = {} & ContainerProps
 
 const Component: React.FC<Props> = (props) => (
-  <p
-    className='w-full mt-7 text-sm'
+  <div
+    className={styles.text + ' mt-7 text-sm md:text-base'}
     dangerouslySetInnerHTML={{ __html: props.text }}
-  ></p>
+  ></div>
 )
 
 const Container: React.FC<ContainerProps> = (props) => {

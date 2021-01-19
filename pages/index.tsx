@@ -8,8 +8,6 @@ import type { PostsData, TagsData } from '../types/cms-data'
 import type { PostOverviewProps } from '../components/PostOverview'
 import Link from 'next/link'
 import { pagesPath } from '../utils/$path'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 import { getTags } from '../utils/getTags'
 import type { Tag } from '../components/AllTag/AllTag'
 
@@ -44,12 +42,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 }
 
 const IndexPage: NextPage<Props> = (props) => {
-  const router = useRouter()
-  useEffect(() => {
-    props.posts.forEach((post) => {
-      router.prefetch(`${pagesPath.posts.$url().pathname}/${post.url}`)
-    })
-  }, [])
   return (
     <>
       <Head>
@@ -63,7 +55,7 @@ const IndexPage: NextPage<Props> = (props) => {
         <div className='mt-7'>
           <PostOverviewList postOverviewList={props.posts} />
         </div>
-        <Link href={pagesPath.posts.$url().pathname}>
+        <Link href={pagesPath.posts.$url()}>
           <a className='flex justify-center items-center w-56 h-14 mt-7 md:mt-14  mx-auto font-english text-white bg-gradient-to-b rounded-md from-blue-darker to-blue-dark'>
             More Posts
           </a>

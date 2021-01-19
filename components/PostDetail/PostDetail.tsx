@@ -1,5 +1,5 @@
 import React from 'react'
-import { PostData } from '../../types/cms-data'
+import type { PostData } from '../../types/cms-data'
 import PostDetailTitle from '../PostDetailTitle'
 import PostDetailToc, { PostDetailTocProps } from '../PostDetailToc'
 import PostDetailBody from '../PostDetailBody'

@@ -1,7 +1,6 @@
 import React from 'react'
 import SearchButton from '../SearchButton'
 import type { SearchButtonProps } from '../SearchButton'
-import type { PostOverviewProps } from '../PostOverview'
 import { useSearch } from '../../hooks/useSearch'
 
 import styles from './IndexKey.module.scss'

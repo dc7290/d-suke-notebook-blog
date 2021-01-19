@@ -1,0 +1,11 @@
+.image {
+  > div > div {
+    padding-top: 0 !important;
+    position: absolute;
+  }
+  img {
+    object-fit: contain;
+    height: auto !important;
+    position: relative !important;
+  }
+}

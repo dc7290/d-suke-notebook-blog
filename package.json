@@ -11,7 +11,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
     "dayjs": "^1.10.3",
+    "highlight.js": "^10.5.0",
     "next": "10.0.5",
     "next-google-fonts": "^1.2.1",
     "react": "17.0.1",

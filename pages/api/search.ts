@@ -3,7 +3,7 @@ import { options } from '..'
 import type { PostData, PostsData } from '../../types/cms-data'
 
 type Data = {
-  posts: PostData[]
+  posts: PostData['contents'][]
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
