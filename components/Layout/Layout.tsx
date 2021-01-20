@@ -6,6 +6,7 @@ import Footer from '../Footer'
 import type { ReactNode } from 'react'
 import type { Tag } from '../AllTag/AllTag'
 import Head from 'next/head'
+import NextProgress from 'nextjs-progressbar'
 
 type ContainerProps = {
   children: ReactNode
@@ -36,6 +37,7 @@ const Component: React.FC<Props> = (props) => (
       <meta property='og:locale' content='ja_JP' />
       <link rel='icon' href='/favicon.ico' />
     </Head>
+    <NextProgress color='#3333c3' />
     <Header />
     <main className='mt-14 md:mt-20 mx-auto w-container max-w-screen-xl'>
       {props.children}
