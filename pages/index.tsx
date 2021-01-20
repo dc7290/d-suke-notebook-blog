@@ -32,7 +32,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   })
 
   const tags: TagsData = await getTags()
-
   return {
     props: {
       posts: data.contents,
@@ -46,6 +45,7 @@ const IndexPage: NextPage<Props> = (props) => {
     <>
       <Head>
         <title>でぃーすけの個人的備忘録</title>
+        <meta property='og:title' content='でぃーすけの個人的備忘録' />
       </Head>
       <Layout tags={props.tags}>
         <IndexKey />

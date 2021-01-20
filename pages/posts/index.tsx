@@ -39,6 +39,7 @@ const PostsPage: NextPage<Props> = (props) => {
     <>
       <Head>
         <title>Posts | でぃーすけの個人的備忘録</title>
+        <meta property='og:title' content='Posts | でぃーすけの個人的備忘録' />
       </Head>
       <Layout tags={props.tags}>
         <PageTitle title='All Posts' />

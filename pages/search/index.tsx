@@ -49,6 +49,10 @@ const SearchPage: NextPage<Props, Query> = (props) => {
     <>
       <Head>
         <title>検索結果:{router.query.q} | でぃーすけの個人的備忘録</title>
+        <meta
+          property='og:title'
+          content={`検索結果:${router.query.q} | でぃーすけの個人的備忘録`}
+        />
       </Head>
       <Layout tags={props.tags}>
         <PageTitle title={(router.query.q as string) || 'All'} />

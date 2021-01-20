@@ -75,6 +75,10 @@ const PostIdPage: NextPage<Props> = (props) => {
     <>
       <Head>
         <title>{props.post.title} | でぃーすけの個人的備忘録</title>
+        <meta
+          property='og:title'
+          content={`${props.post.title} | でぃーすけの個人的備忘録`}
+        />
       </Head>
       <Layout tags={props.tags}>
         <PostDetail post={props.post} />

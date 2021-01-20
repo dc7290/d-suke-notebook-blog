@@ -56,8 +56,11 @@ const Navigation: React.FC<NavigationProps> = (props) => (
 const Component: React.FC<Props> = (props) => (
   <header className='fixed z-40 top-0 left-0 right-0 flex items-center justify-between h-14 md:h-20 pl-2.5 md:pl-5 pr-6 md:pr-8 bg-white border-gray border-b-2 border-solid'>
     <div className='flex items-center'>
-      <Link href={pagesPath.$url()}></Link>
-      <img src='/logo.svg' alt='ロゴ' className='w-10 h-10' />
+      <Link href={pagesPath.$url()}>
+        <a>
+          <img src='/logo.svg' alt='ロゴ' className='w-10 h-10' />
+        </a>
+      </Link>
       <h1 className='text-xl md:text-2xl'>でぃーすけの個人的備忘録</h1>
     </div>
     <div className='hidden md:flex items-center'>

@@ -48,6 +48,10 @@ const TagIdPage: NextPage<Props> = (props) => {
     <>
       <Head>
         <title>{props.currentTag} | でぃーすけの個人的備忘録</title>
+        <meta
+          property='og:title'
+          content={`${props.currentTag} | でぃーすけの個人的備忘録`}
+        />
       </Head>
       <Layout tags={props.tags}>
         <PageTitle title={props.currentTag} />
