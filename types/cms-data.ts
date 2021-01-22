@@ -1,4 +1,4 @@
-type BodyContent =
+export type BodyContent =
   | {
       fieldId: 'heading1'
       heading: string
