@@ -15,7 +15,7 @@ const Component: React.FC<Props> = (props) => (
   <div className='pt-12 md:pt-24'>
     <PostDetailTitle title={props.post.title} />
     <PostDetailToc list={props.tocList} />
-    <PostDetailBody body={props.post.body} />
+    <PostDetailBody body={props.post.body} tocList={props.tocList} />
   </div>
 )
 
@@ -26,9 +26,13 @@ const Container: React.FC<ContainerProps> = (props) => {
       return {
         type: el.fieldId,
         text: el.heading,
+        id: '',
       }
     })
     .filter((el): el is Exclude<typeof el, undefined> => el !== undefined)
+  tocList.forEach((el, i) => {
+    el.id = `heading${i}`
+  })
   return <Component {...props} tocList={tocList} />
 }
 
