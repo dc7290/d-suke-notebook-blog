@@ -9,6 +9,11 @@ module.exports = {
         destination: '/posts',
         permanent: true,
       },
+      {
+        source: '/blog/:postId',
+        destination: '/posts/:postId',
+        permanent: true,
+      },
     ]
   },
 }
