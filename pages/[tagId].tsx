@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     props: {
       posts: data.contents,
       tags: tags.contents,
-      currentTag: data.contents[0].tag.text,
+      currentTag: data.contents.length !== 0 ? data.contents[0].tag.text : '',
     },
   }
 }
