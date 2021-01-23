@@ -25,7 +25,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }))
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }
 
@@ -37,8 +37,11 @@ type Props = {
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const params = context.params as { postId: string }
+  const draftKey = context.previewData?.draftKey
   const data: { contents: PostData['contents'][] } = await fetch(
-    `${process.env.MICROCMS_URL}posts?filters=url[equals]${params.postId}`,
+    `${process.env.MICROCMS_URL}posts?filters=url[equals]${params.postId}${
+      draftKey !== undefined ? `&draftKey=${draftKey}` : ''
+    }`,
     options
   ).then((res) => res.json())
   const relatedPosts: { contents: PostData['contents'][] } = await fetch(
@@ -71,6 +74,9 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 }
 
 const PostIdPage: NextPage<Props> = (props) => {
+  if (!props.post) {
+    return <p>ページが見つかりませんでした。</p>
+  }
   return (
     <>
       <Head>
