@@ -1,6 +1,35 @@
+@use '../../styles/mixin.scss' as *;
+
 .text {
   a {
     color: #3333c3;
     text-decoration: underline;
+  }
+  ul {
+    margin: 5px 0;
+  }
+  li {
+    @include mq('md') {
+      padding-left: 20px;
+    }
+    padding-left: 15px;
+    position: relative;
+    &::before {
+      @include mq('md') {
+        top: 12px;
+        left: 7px;
+        width: 5px;
+        height: 5px;
+      }
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 5px;
+      font-size: 12px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #2c2c33;
+    }
   }
 }
