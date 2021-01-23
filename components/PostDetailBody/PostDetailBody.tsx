@@ -20,18 +20,36 @@ const Component: React.FC<Props> = (props) => (
           const heading1Id = props.tocList[0].id
           props.tocList.splice(0, 1)
           return (
-            <PostDetailBodyHeading1 text={content.heading} id={heading1Id} />
+            <PostDetailBodyHeading1
+              text={content.heading}
+              id={heading1Id}
+              key={content.heading}
+            />
           )
         case 'heading2':
           const heading2Id = props.tocList[0].id
           props.tocList.splice(0, 1)
           return (
-            <PostDetailBodyHeading2 text={content.heading} id={heading2Id} />
+            <PostDetailBodyHeading2
+              text={content.heading}
+              id={heading2Id}
+              key={content.heading}
+            />
           )
         case 'text':
-          return <PostDetailBodyText text={content.text} />
+          return (
+            <PostDetailBodyText
+              text={content.text}
+              key={content.text.slice(0, 10)}
+            />
+          )
         case 'image':
-          return <PostDetailBodyImage src={content.image.url} />
+          return (
+            <PostDetailBodyImage
+              src={content.image.url}
+              key={content.image.url.slice(0, 10)}
+            />
+          )
         default:
           return
       }
