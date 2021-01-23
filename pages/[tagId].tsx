@@ -13,7 +13,7 @@ type Props = {
   posts: PostOverviewProps[]
   tags: Tag[]
   currentTag: string
-} | null
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data: TagsData = await getTags()
