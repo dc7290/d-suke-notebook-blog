@@ -1,5 +1,5 @@
 import React from 'react'
-import type { PostData } from '../../types/cms-data'
+import type { BodyContent } from '../../types/cms-data'
 import type { PostDetailTocProps } from '../PostDetailToc'
 import PostDetailBodyHeading1 from '../PostDetailBodyHeading1'
 import PostDetailBodyHeading2 from '../PostDetailBodyHeading2'
@@ -7,7 +7,7 @@ import PostDetailBodyText from '../PostDetailBodyText'
 import PostDetailBodyImage from '../PostDetailBodyImage'
 
 type ContainerProps = {
-  body: PostData['contents']['body']
+  body: BodyContent[]
   tocList: PostDetailTocProps['list']
 }
 type Props = {} & ContainerProps
@@ -46,7 +46,9 @@ const Component: React.FC<Props> = (props) => (
         case 'image':
           return (
             <PostDetailBodyImage
-              src={content.image.url}
+              url={content.image.url}
+              width={content.image.width}
+              height={content.image.height}
               key={content.image.url.slice(0, 10)}
             />
           )

@@ -15,6 +15,8 @@ export type BodyContent =
       fieldId: 'image'
       image: {
         url: string
+        width: number
+        height: number
       }
     }
 

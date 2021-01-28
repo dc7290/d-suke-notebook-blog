@@ -1,9 +1,10 @@
 import React from 'react'
 import Image, { ImageLoader } from 'next/image'
-import styles from './PostDetailBodyImage.module.scss'
 
 type ContainerProps = {
-  src: string
+  url: string
+  width: number
+  height: number
 }
 type Props = {} & ContainerProps
 
@@ -11,12 +12,12 @@ const loader: ImageLoader = ({ src, width, quality }) =>
   `${src}?w=${width}&q=${quality || 75}&fm=webp`
 
 const Component: React.FC<Props> = (props) => (
-  <div className={styles.image + ' mt-7 w-full'}>
+  <div className='mt-7'>
     <Image
       loader={loader}
-      src={props.src}
-      width='auto'
-      height='auto'
+      src={props.url}
+      width={props.width}
+      height={props.height}
       layout='responsive'
     />
   </div>
