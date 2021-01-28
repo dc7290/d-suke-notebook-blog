@@ -46,6 +46,7 @@ const IndexPage: NextPage<Props> = (props) => {
       <Head>
         <title>でぃーすけの個人的備忘録</title>
         <meta property='og:title' content='でぃーすけの個人的備忘録' />
+        <meta property='og:url' content='https://d-suke-notebook-blog.com/' />
       </Head>
       <Layout tags={props.tags}>
         <IndexKey />

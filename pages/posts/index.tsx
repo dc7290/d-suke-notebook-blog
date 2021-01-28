@@ -40,6 +40,10 @@ const PostsPage: NextPage<Props> = (props) => {
       <Head>
         <title>Posts | でぃーすけの個人的備忘録</title>
         <meta property='og:title' content='Posts | でぃーすけの個人的備忘録' />
+        <meta
+          property='og:url'
+          content='https://d-suke-notebook-blog.com/posts/'
+        />
       </Head>
       <Layout tags={props.tags}>
         <PageTitle title='All Posts' />

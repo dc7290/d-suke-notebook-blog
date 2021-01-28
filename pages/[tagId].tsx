@@ -52,6 +52,7 @@ const TagIdPage: NextPage<Props> = (props) => {
           property='og:title'
           content={`${props.currentTag} | でぃーすけの個人的備忘録`}
         />
+        <meta property='og:url' content='https://d-suke-notebook-blog.com/' />
       </Head>
       <Layout tags={props.tags}>
         <PageTitle title={props.currentTag} />

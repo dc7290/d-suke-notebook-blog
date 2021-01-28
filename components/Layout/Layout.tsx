@@ -29,7 +29,6 @@ const Component: React.FC<Props> = (props) => (
       />
       <meta property='og:site_name' content='でぃーすけの個人的備忘録' />
       <meta property='og:type' content='website' />
-      <meta property='og:url' content='https://d-suke-notebook-blog.com' />
       <meta
         property='og:image'
         content='https://d-suke-notebook-blog.com/og.png'
