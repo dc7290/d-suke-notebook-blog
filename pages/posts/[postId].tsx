@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     options
   ).then((res) => res.json())
   const relatedPosts: { contents: PostData['contents'][] } = await fetch(
-    `${process.env.MICROCMS_URL}posts?filters=tag[equals]${data.contents[0].tag.id}`,
+    `${process.env.MICROCMS_URL}posts?filters=tag[equals]${data.contents[0].tag.id}[and]url[not_equals]${params.postId}`,
     options
   ).then((res) => res.json())
   const tags: TagsData = await getTags()
