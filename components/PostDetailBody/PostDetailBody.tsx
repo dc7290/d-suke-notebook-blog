@@ -14,7 +14,7 @@ type Props = {} & ContainerProps
 
 const Component: React.FC<Props> = (props) => (
   <div className='pt-2 md:pt-7'>
-    {props.body.map((content) => {
+    {props.body.map((content, i) => {
       switch (content.fieldId) {
         case 'heading1':
           const heading1Id = props.tocList[0].id
@@ -23,7 +23,7 @@ const Component: React.FC<Props> = (props) => (
             <PostDetailBodyHeading1
               text={content.heading}
               id={heading1Id}
-              key={content.heading}
+              key={i}
             />
           )
         case 'heading2':
@@ -33,14 +33,14 @@ const Component: React.FC<Props> = (props) => (
             <PostDetailBodyHeading2
               text={content.heading}
               id={heading2Id}
-              key={content.heading}
+              key={i}
             />
           )
         case 'text':
           return (
             <PostDetailBodyText
               text={content.text}
-              key={content.text.slice(0, 10)}
+              key={i}
             />
           )
         case 'image':
@@ -49,7 +49,7 @@ const Component: React.FC<Props> = (props) => (
               url={content.image.url}
               width={content.image.width}
               height={content.image.height}
-              key={content.image.url.slice(0, 10)}
+              key={i}
             />
           )
         default:
