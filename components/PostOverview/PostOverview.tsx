@@ -14,7 +14,7 @@ export type ContainerProps = {
   title: string
   summaryText: string
   publishedAt: string
-  updatedAt: string
+  revisedAt: string
 }
 type Props = {
   onClick: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
@@ -40,7 +40,7 @@ const Component: React.FC<Props> = (props) => (
       <span className='font-bold text-blue pl-4'>Read more</span>
     </p>
     <p className='text-xs mt-2.5'>
-      {formatDate(props.publishedAt)} - 更新日 {formatDate(props.updatedAt)}
+      {formatDate(props.publishedAt)} - 更新日 {formatDate(props.revisedAt)}
     </p>
   </article>
 )
