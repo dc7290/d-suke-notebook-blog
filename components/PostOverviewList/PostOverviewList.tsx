@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PostOverview from '../PostOverview'
 import type { PostOverviewProps } from '../PostOverview'
-import { useRouter } from 'next/router'
-import { pagesPath } from '../../utils/$path'
 
 type ContainerProps = {
   postOverviewList: PostOverviewProps[]
@@ -20,12 +18,6 @@ const Component: React.FC<Props> = (props) => (
 )
 
 const Container: React.FC<ContainerProps> = (props) => {
-  const router = useRouter()
-  useEffect(() => {
-    props.postOverviewList.forEach((post) => {
-      router.prefetch(`${pagesPath.posts.$url().pathname}/${post.url}`)
-    })
-  }, [])
   return <Component {...props} />
 }
 

@@ -1,8 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import { useRouterPrefetch } from '@dc7290/next-router-prefetch'
 import { pagesPath } from '../../utils/$path'
-import { useRouter } from 'next/router'
-import type {} from 'dayjs'
 import { formatDate } from '../../utils/day'
 
 export type ContainerProps = {
@@ -17,6 +16,7 @@ export type ContainerProps = {
   revisedAt: string
 }
 type Props = {
+  articleRef: React.LegacyRef<HTMLElement> | undefined
   onClick: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
 } & ContainerProps
 
@@ -25,6 +25,7 @@ const Component: React.FC<Props> = (props) => (
     onClick={props.onClick}
     className='py-5 border-gray-100 border-b-2 border-solid cursor-pointer transition-colors hover:bg-blue-light hover:bg-opacity-40'
     role='link'
+    ref={props.articleRef}
   >
     <Link href={pagesPath._tagId(props.tag.link).$url()}>
       <a
@@ -46,10 +47,16 @@ const Component: React.FC<Props> = (props) => (
 )
 
 const Container: React.FC<ContainerProps> = (props) => {
-  const router = useRouter()
-  const handleClick: Props['onClick'] = () =>
-    router.push(pagesPath.posts._postId(props.url).$url())
-  return <Component {...props} onClick={handleClick} />
+  const { handleRouterPush, prefetchTarget } = useRouterPrefetch<HTMLElement>(
+    pagesPath.posts._postId(props.url).$url()
+  )
+  return (
+    <Component
+      {...props}
+      onClick={handleRouterPush}
+      articleRef={prefetchTarget}
+    />
+  )
 }
 
 export default Container
