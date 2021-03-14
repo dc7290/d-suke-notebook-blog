@@ -22,17 +22,15 @@ const Component: React.FC<Props> = ({ url, width, height }) => {
   const [isLoad, setIsLoad] = useState(false)
   const lazyImage = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    if (process.browser) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsLoad(true)
-          }
-        })
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsLoad(true)
+        }
       })
-      if (lazyImage.current) {
-        observer.observe(lazyImage.current)
-      }
+    })
+    if (lazyImage.current) {
+      observer.observe(lazyImage.current)
     }
   }, [])
 

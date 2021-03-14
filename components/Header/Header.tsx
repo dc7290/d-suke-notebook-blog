@@ -9,10 +9,7 @@ import { useRouter } from 'next/router'
 import stylesNavigation from './Navigation.module.scss'
 
 type NavigationProps = {
-  onLinkClick: (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    pass: string
-  ) => void
+  onLinkClick: () => void
   currentPass: string
 }
 type ContainerProps = {}
@@ -38,16 +35,16 @@ const Navigation: React.FC<NavigationProps> = (props) => (
     {navigationList.map((nav) => {
       const isMatch = props.currentPass === nav.pass
       return (
-        <a
-          href={nav.pass}
-          className={`${stylesNavigation.link} ${
-            isMatch ? stylesNavigation.active : ''
-          }`}
-          onClick={(e) => props.onLinkClick(e, nav.pass)}
-          key={nav.name}
-        >
-          {nav.name}
-        </a>
+        <Link href={nav.pass} key={nav.name}>
+          <a
+            className={`${stylesNavigation.link} ${
+              isMatch ? stylesNavigation.active : ''
+            }`}
+            onClick={() => props.onLinkClick()}
+          >
+            {nav.name}
+          </a>
+        </Link>
       )
     })}
   </nav>
@@ -152,13 +149,9 @@ const Container: React.FC<ContainerProps> = () => {
   )
 
   const router = useRouter()
-  const handleLinkClick = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    pass: string
-  ) => {
-    e.preventDefault()
+
+  const handleLinkClick = () => {
     setOpen(false)
-    router.push(pass)
   }
   return (
     <Component
