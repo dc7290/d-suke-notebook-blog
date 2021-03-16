@@ -22,7 +22,7 @@ type Props = {
 
 const Component: React.FC<Props> = (props) => (
   <article
-    onClick={props.onClick}
+    onClick={(e) => props.onClick(e)}
     className='py-5 border-gray-100 border-b-2 border-solid cursor-pointer transition-colors hover:bg-blue-light hover:bg-opacity-40'
     role='link'
     ref={props.articleRef}
